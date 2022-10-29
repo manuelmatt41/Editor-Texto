@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manue\\Documents\\DAM\\c-\\Tema5\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
+      "projectUniqueName": "C:\\Users\\manue\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
       "projectName": "Editor-Texto",
-      "projectPath": "C:\\Users\\manue\\Documents\\DAM\\c-\\Tema5\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
+      "projectPath": "C:\\Users\\manue\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
       "packagesPath": "C:\\Users\\manue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manue\\Documents\\DAM\\c-\\Tema5\\Editor-Texto\\Editor-Texto\\obj\\",
+      "outputPath": "C:\\Users\\manue\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\manue\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

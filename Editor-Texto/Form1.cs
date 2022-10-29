@@ -59,7 +59,7 @@ namespace Editor_Texto
             // TextBox "Document" Event
             //
             textBox1.TextChanged += new EventHandler((sender, e) => saved = false);
-            textBox1.TextChanged += new EventHandler((sender, e) => new Thread(() => { UpdateInfo(phrasesToolStripLabel1, wordsToolStripLabel1, charactersToolStripLabel1, textBox1.Text); }).Start());
+            textBox1.TextChanged += new EventHandler((sender, e) => UpdateInfo(phrasesToolStripLabel1, wordsToolStripLabel1, charactersToolStripLabel1, textBox1.Text));
             textBox1.MouseMove += new MouseEventHandler(UpdateSelectionInfo);
         }
 
