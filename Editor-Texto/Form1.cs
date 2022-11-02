@@ -34,6 +34,7 @@ namespace Editor_Texto
             // Tools Menu Events
             //
             wordWrapMenu.Click += new EventHandler((sender, e) => textBox1.WordWrap = ((ToolStripMenuItem)sender).Checked);
+            wordWrapMenu.Click += new EventHandler((sender, e) => textBox1.ScrollBars = ((ToolStripMenuItem)sender).Checked ? ScrollBars.Vertical : ScrollBars.Both);
             uppercaseToolStripMenuItem.Click += new EventHandler((sender, e) => ChangeCheckWriteMode((ToolStripMenuItem)sender));
             lowercaseToolStripMenuItem.Click += new EventHandler((sender, e) => ChangeCheckWriteMode((ToolStripMenuItem)sender));
             normalToolStripMenuItem.Click += new EventHandler((sender, e) => ChangeCheckWriteMode((ToolStripMenuItem)sender));
@@ -59,8 +60,19 @@ namespace Editor_Texto
             // TextBox "Document" Event
             //
             textBox1.TextChanged += new EventHandler((sender, e) => saved = false);
-            textBox1.TextChanged += new EventHandler((sender, e) => UpdateInfo(phrasesToolStripLabel1, wordsToolStripLabel1, charactersToolStripLabel1, textBox1.Text));
+            textBox1.TextChanged += new EventHandler((sender, e) => new Thread(() => { UpdateInfo(phrasesToolStripLabel1, wordsToolStripLabel1, charactersToolStripLabel1, textBox1.Text); }).Start());
             textBox1.MouseMove += new MouseEventHandler(UpdateSelectionInfo);
+        }
+
+        private void CreateConfigDirectory()
+        {
+            try
+            {
+                Directory.CreateDirectory(saveDirectory.FullName);
+            }
+            catch (Exception e) when (e is IOException || e is FileNotFoundException || e is DirectoryNotFoundException)
+            {
+            }
         }
 
         private void LoadConfig()
@@ -74,6 +86,7 @@ namespace Editor_Texto
             }
             catch (Exception e) when (e is IOException || e is FileNotFoundException || e is DirectoryNotFoundException)
             {
+                CreateConfigDirectory();
                 configuration = new Configuration();
             }
             InitializeDocumentConfig();

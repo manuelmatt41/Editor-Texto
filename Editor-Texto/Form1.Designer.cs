@@ -41,7 +41,6 @@
             this.cutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.selectAllMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectInformationMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWrapMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.writeModeMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,6 +103,7 @@
             // 
             // newDocumentMenu
             // 
+            this.newDocumentMenu.Image = global::Editor_Texto.Properties.Resources.outline_note_add_black_24dp;
             this.newDocumentMenu.Name = "newDocumentMenu";
             this.newDocumentMenu.Size = new System.Drawing.Size(157, 22);
             this.newDocumentMenu.Text = "New Document";
@@ -111,6 +111,7 @@
             // 
             // saveFileMenu
             // 
+            this.saveFileMenu.Image = global::Editor_Texto.Properties.Resources.outline_save_black_24dp;
             this.saveFileMenu.Name = "saveFileMenu";
             this.saveFileMenu.Size = new System.Drawing.Size(157, 22);
             this.saveFileMenu.Text = "Save File";
@@ -118,6 +119,7 @@
             // 
             // openFileMenu
             // 
+            this.openFileMenu.Image = global::Editor_Texto.Properties.Resources.outline_folder_open_black_24dp;
             this.openFileMenu.Name = "openFileMenu";
             this.openFileMenu.Size = new System.Drawing.Size(157, 22);
             this.openFileMenu.Text = "Open File";
@@ -142,47 +144,45 @@
             this.copyMenu,
             this.cutMenu,
             this.pasteMenu,
-            this.selectAllMenu,
-            this.selectInformationMenu});
+            this.selectAllMenu});
             this.editMenu.Name = "editMenu";
             this.editMenu.Size = new System.Drawing.Size(39, 20);
             this.editMenu.Text = "Edit";
             // 
             // undoMenu
             // 
+            this.undoMenu.Image = global::Editor_Texto.Properties.Resources.outline_undo_black_24dp;
             this.undoMenu.Name = "undoMenu";
-            this.undoMenu.Size = new System.Drawing.Size(171, 22);
+            this.undoMenu.Size = new System.Drawing.Size(122, 22);
             this.undoMenu.Text = "Undo";
             // 
             // copyMenu
             // 
+            this.copyMenu.Image = global::Editor_Texto.Properties.Resources.outline_content_copy_black_24dp;
             this.copyMenu.Name = "copyMenu";
-            this.copyMenu.Size = new System.Drawing.Size(171, 22);
+            this.copyMenu.Size = new System.Drawing.Size(122, 22);
             this.copyMenu.Text = "Copy";
             // 
             // cutMenu
             // 
+            this.cutMenu.Image = global::Editor_Texto.Properties.Resources.outline_content_cut_black_24dp;
             this.cutMenu.Name = "cutMenu";
-            this.cutMenu.Size = new System.Drawing.Size(171, 22);
+            this.cutMenu.Size = new System.Drawing.Size(122, 22);
             this.cutMenu.Text = "Cut";
             // 
             // pasteMenu
             // 
+            this.pasteMenu.Image = global::Editor_Texto.Properties.Resources.outline_content_paste_black_24dp;
             this.pasteMenu.Name = "pasteMenu";
-            this.pasteMenu.Size = new System.Drawing.Size(171, 22);
+            this.pasteMenu.Size = new System.Drawing.Size(122, 22);
             this.pasteMenu.Text = "Paste";
             // 
             // selectAllMenu
             // 
+            this.selectAllMenu.Image = global::Editor_Texto.Properties.Resources.outline_select_all_black_24dp;
             this.selectAllMenu.Name = "selectAllMenu";
-            this.selectAllMenu.Size = new System.Drawing.Size(171, 22);
+            this.selectAllMenu.Size = new System.Drawing.Size(122, 22);
             this.selectAllMenu.Text = "Select All";
-            // 
-            // selectInformationMenu
-            // 
-            this.selectInformationMenu.Name = "selectInformationMenu";
-            this.selectInformationMenu.Size = new System.Drawing.Size(171, 22);
-            this.selectInformationMenu.Text = "Select information";
             // 
             // toolsMenu
             // 
@@ -304,48 +304,48 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // toolStripButton4
+            // undoToolStripButton4
             // 
             this.undoToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.undoToolStripButton4.Image = global::Editor_Texto.Properties.Resources.outline_undo_black_24dp;
             this.undoToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.undoToolStripButton4.Name = "toolStripButton4";
+            this.undoToolStripButton4.Name = "undoToolStripButton4";
             this.undoToolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.undoToolStripButton4.Text = "toolStripButton4";
             // 
-            // toolStripButton5
+            // copyToolStripButton5
             // 
             this.copyToolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.copyToolStripButton5.Image = global::Editor_Texto.Properties.Resources.outline_content_copy_black_24dp;
             this.copyToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.copyToolStripButton5.Name = "toolStripButton5";
+            this.copyToolStripButton5.Name = "copyToolStripButton5";
             this.copyToolStripButton5.Size = new System.Drawing.Size(23, 22);
             this.copyToolStripButton5.Text = "toolStripButton5";
             // 
-            // toolStripButton6
+            // cutToolStripButton6
             // 
             this.cutToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.cutToolStripButton6.Image = global::Editor_Texto.Properties.Resources.outline_content_cut_black_24dp;
             this.cutToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.cutToolStripButton6.Name = "toolStripButton6";
+            this.cutToolStripButton6.Name = "cutToolStripButton6";
             this.cutToolStripButton6.Size = new System.Drawing.Size(23, 22);
             this.cutToolStripButton6.Text = "toolStripButton6";
             // 
-            // toolStripButton7
+            // pasteToolStripButton7
             // 
             this.pasteToolStripButton7.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.pasteToolStripButton7.Image = global::Editor_Texto.Properties.Resources.outline_content_paste_black_24dp;
             this.pasteToolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.pasteToolStripButton7.Name = "toolStripButton7";
+            this.pasteToolStripButton7.Name = "pasteToolStripButton7";
             this.pasteToolStripButton7.Size = new System.Drawing.Size(23, 22);
             this.pasteToolStripButton7.Text = "toolStripButton7";
             // 
-            // toolStripButton8
+            // selectAllToolStripButton8
             // 
             this.selectAllToolStripButton8.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.selectAllToolStripButton8.Image = global::Editor_Texto.Properties.Resources.outline_select_all_black_24dp;
             this.selectAllToolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.selectAllToolStripButton8.Name = "toolStripButton8";
+            this.selectAllToolStripButton8.Name = "selectAllToolStripButton8";
             this.selectAllToolStripButton8.Size = new System.Drawing.Size(23, 22);
             this.selectAllToolStripButton8.Text = "toolStripButton8";
             // 
@@ -431,7 +431,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Note--";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -457,7 +457,6 @@
         private ToolStripMenuItem cutMenu;
         private ToolStripMenuItem pasteMenu;
         private ToolStripMenuItem selectAllMenu;
-        private ToolStripMenuItem selectInformationMenu;
         private ToolStripMenuItem toolsMenu;
         private ToolStripMenuItem wordWrapMenu;
         private ToolStripMenuItem writeModeMenu;

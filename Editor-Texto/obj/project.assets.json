@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\manue\\.nuget\\packages\\": {}
+    "C:\\Users\\Manuel Marín\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\manue\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
+      "projectUniqueName": "C:\\Users\\Manuel Marín\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
       "projectName": "Editor-Texto",
-      "projectPath": "C:\\Users\\manue\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
-      "packagesPath": "C:\\Users\\manue\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\manue\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\obj\\",
+      "projectPath": "C:\\Users\\Manuel Marín\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
+      "packagesPath": "C:\\Users\\Manuel Marín\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Manuel Marín\\Documents\\Projects\\Editor-Texto\\Editor-Texto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\manue\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Manuel Marín\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
