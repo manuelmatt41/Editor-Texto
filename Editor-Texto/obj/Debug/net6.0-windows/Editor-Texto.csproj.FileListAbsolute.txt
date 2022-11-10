@@ -34,3 +34,21 @@ C:\Users\Manuel Marín\Documents\Projects\Editor-Texto\Editor-Texto\obj\Debug\ne
 C:\Users\Manuel Marín\Documents\Projects\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.pdb
 C:\Users\Manuel Marín\Documents\Projects\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.genruntimeconfig.cache
 C:\Users\Manuel Marín\Documents\Projects\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\ref\Editor-Texto.dll
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\bin\Debug\net6.0-windows\Editor-Texto.exe
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\bin\Debug\net6.0-windows\Editor-Texto.deps.json
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\bin\Debug\net6.0-windows\Editor-Texto.runtimeconfig.json
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\bin\Debug\net6.0-windows\Editor-Texto.dll
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\bin\Debug\net6.0-windows\Editor-Texto.pdb
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.csproj.AssemblyReference.cache
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor_Texto.Form1.resources
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor_Texto.Properties.Resources.resources
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.csproj.GenerateResource.cache
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.AssemblyInfoInputs.cache
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.AssemblyInfo.cs
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.csproj.CoreCompileInputs.cache
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.dll
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\refint\Editor-Texto.dll
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.pdb
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\Editor-Texto.genruntimeconfig.cache
+C:\Users\Manu\Documents\Editor-Texto\Editor-Texto\obj\Debug\net6.0-windows\ref\Editor-Texto.dll
