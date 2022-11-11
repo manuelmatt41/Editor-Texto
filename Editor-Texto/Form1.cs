@@ -8,7 +8,7 @@ namespace Editor_Texto
         public Form1()
         {
             InitializeComponent();
-            textBox1.Size = GetFormWhiteSpace();
+            textBox1.Size = GetFormFreeSpace();
             InitializeEvents();
             LoadConfig();
             this.Text = "SinTitulo.txt";
@@ -20,7 +20,7 @@ namespace Editor_Texto
             //
             // Resize Event
             //
-            this.Resize += new EventHandler((sender, e) => textBox1.Size = GetFormWhiteSpace());
+            this.Resize += new EventHandler((sender, e) => textBox1.Size = GetFormFreeSpace());
             //
             // Edit Menu Events
             //
@@ -43,6 +43,7 @@ namespace Editor_Texto
             normalToolStripMenuItem.CheckedChanged += new EventHandler(ChangeWriteMode);
             textColorMenu.Click += new EventHandler(ChangeColor);
             backgroundColorMenu.Click += new EventHandler(ChangeColor);
+            fontMenu.Click += new EventHandler((sender, e) => ChangeFont(sender, e));
             //
             // ToolStripIcons Events
             //
@@ -120,6 +121,11 @@ namespace Editor_Texto
             Image backColor;
             backgroundColorMenu.Image = GetColorImage(out backColor, saveDirectory.FullName + "\\backColor.png") ? backColor : Properties.Resources.backColor;
             textBox1.BackColor = configuration.backColor;
+            //
+            // Font
+            //
+            textBox1.Font = new Font(configuration.familyName, (float)configuration.fontEmSize, configuration.fontStyle);
+            fontMenu.ToolTipText = $"Family: {textBox1.Font.FontFamily.Name} | Size: {textBox1.Font.Size} | Style: {textBox1.Font.Style}";
         }
         private void SaveConfiguration()
         {
@@ -131,6 +137,9 @@ namespace Editor_Texto
             configuration.characterCasing = (CharacterCasing)GetWriteMode().Tag;
             configuration.foreColor = textBox1.ForeColor;
             configuration.backColor = textBox1.BackColor;
+            configuration.familyName = textBox1.Font.FontFamily.Name;
+            configuration.fontEmSize = textBox1.Font.Size;
+            configuration.fontStyle = textBox1.Font.Style;
 
             try
             {
@@ -245,7 +254,17 @@ namespace Editor_Texto
             backgroundColorMenu.Image.Save(saveDirectory.FullName + "\\backColor.png");
         }
 
-        public Size GetFormWhiteSpace()
+        public void ChangeFont(object sender, EventArgs e)
+        {
+            FontDialog fontDialog = new FontDialog();
+            if (fontDialog.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Font = fontDialog.Font;
+                fontMenu.ToolTipText = $"Family: {textBox1.Font.FontFamily.Name} | Size: {textBox1.Font.Size} | Style: {textBox1.Font.Style}";
+            }
+        }
+
+        public Size GetFormFreeSpace()
         {
             return new Size(this.Width - 15, this.Height - menuStrip1.Height - toolStrip1.Height - toolStrip2.Height - 40);
         }

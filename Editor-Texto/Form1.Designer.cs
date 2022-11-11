@@ -71,6 +71,7 @@
             this.wordsToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.charactersToolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.fontMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
@@ -191,6 +192,7 @@
             this.writeModeMenu,
             this.textColorMenu,
             this.backgroundColorMenu,
+            this.fontMenu,
             this.aboutMenu});
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(46, 20);
@@ -200,7 +202,7 @@
             // 
             this.wordWrapMenu.CheckOnClick = true;
             this.wordWrapMenu.Name = "wordWrapMenu";
-            this.wordWrapMenu.Size = new System.Drawing.Size(170, 22);
+            this.wordWrapMenu.Size = new System.Drawing.Size(180, 22);
             this.wordWrapMenu.Text = "WordWrap";
             // 
             // writeModeMenu
@@ -210,7 +212,7 @@
             this.lowercaseToolStripMenuItem,
             this.normalToolStripMenuItem});
             this.writeModeMenu.Name = "writeModeMenu";
-            this.writeModeMenu.Size = new System.Drawing.Size(170, 22);
+            this.writeModeMenu.Size = new System.Drawing.Size(180, 22);
             this.writeModeMenu.Text = "Write Mode";
             // 
             // uppercaseToolStripMenuItem
@@ -237,19 +239,19 @@
             // textColorMenu
             // 
             this.textColorMenu.Name = "textColorMenu";
-            this.textColorMenu.Size = new System.Drawing.Size(170, 22);
+            this.textColorMenu.Size = new System.Drawing.Size(180, 22);
             this.textColorMenu.Text = "Text Color";
             // 
             // backgroundColorMenu
             // 
             this.backgroundColorMenu.Name = "backgroundColorMenu";
-            this.backgroundColorMenu.Size = new System.Drawing.Size(170, 22);
+            this.backgroundColorMenu.Size = new System.Drawing.Size(180, 22);
             this.backgroundColorMenu.Text = "Background Color";
             // 
             // aboutMenu
             // 
             this.aboutMenu.Name = "aboutMenu";
-            this.aboutMenu.Size = new System.Drawing.Size(170, 22);
+            this.aboutMenu.Size = new System.Drawing.Size(180, 22);
             this.aboutMenu.Text = "About";
             // 
             // toolStrip1
@@ -420,6 +422,12 @@
             this.charactersToolStripLabel1.Name = "charactersToolStripLabel1";
             this.charactersToolStripLabel1.Size = new System.Drawing.Size(0, 22);
             // 
+            // fontMenu
+            // 
+            this.fontMenu.Name = "fontMenu";
+            this.fontMenu.Size = new System.Drawing.Size(180, 22);
+            this.fontMenu.Text = "Font";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -488,5 +496,6 @@
         private ToolStripLabel wordsToolStripLabel1;
         private ToolStripSeparator toolStripSeparator4;
         private ToolStripLabel charactersToolStripLabel1;
+        private ToolStripMenuItem fontMenu;
     }
 }

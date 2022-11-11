@@ -22,6 +22,9 @@ namespace Editor_Texto
             base.Write(c.backColor.R);
             base.Write(c.backColor.G);
             base.Write(c.backColor.B);
+            base.Write(c.familyName);
+            base.Write(c.fontEmSize);
+            base.Write((int)c.fontStyle);
         }
     }
 
@@ -38,6 +41,9 @@ namespace Editor_Texto
             c.characterCasing = (CharacterCasing)base.ReadInt32();
             c.foreColor = Color.FromArgb(base.ReadByte(), base.ReadByte(), base.ReadByte());
             c.backColor = Color.FromArgb(base.ReadByte(), base.ReadByte(), base.ReadByte());
+            c.familyName = base.ReadString();
+            c.fontEmSize = base.ReadDouble();
+            c.fontStyle= (FontStyle)base.ReadInt32();
             return c;
         }
     }
@@ -51,10 +57,17 @@ namespace Editor_Texto
             this.characterCasing = CharacterCasing.Normal;
             this.foreColor = Color.Black;
             this.backColor = Color.White;
+            this.familyName = FontFamily.GenericMonospace.Name;
+            this.fontEmSize = 12;
+            this.fontStyle = FontStyle.Regular;
+
         }
         public bool wordWrap;
         public CharacterCasing characterCasing;
         public Color foreColor;
         public Color backColor;
+        public String familyName;
+        public double fontEmSize;
+        public FontStyle fontStyle;
     }
 }
