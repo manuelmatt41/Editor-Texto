@@ -61,7 +61,7 @@ namespace Editor_Texto
             // TextBox "Document" Event
             //
             textBox1.TextChanged += new EventHandler((sender, e) => saved = false);
-            textBox1.TextChanged += new EventHandler((sender, e) => new Thread(() => { UpdateInfo(phrasesToolStripLabel1, wordsToolStripLabel1, charactersToolStripLabel1, textBox1.Text); }).Start());
+            textBox1.TextChanged += new EventHandler((sender, e) => UpdateInfo(phrasesToolStripLabel1, wordsToolStripLabel1, charactersToolStripLabel1, textBox1.Text));
             textBox1.MouseMove += new MouseEventHandler(UpdateSelectionInfo);
         }
 
@@ -126,6 +126,15 @@ namespace Editor_Texto
             //
             textBox1.Font = new Font(configuration.familyName, (float)configuration.fontEmSize, configuration.fontStyle);
             fontMenu.ToolTipText = $"Family: {textBox1.Font.FontFamily.Name} | Size: {textBox1.Font.Size} | Style: {textBox1.Font.Style}";
+            //
+            // Recent files
+            //
+            for (int i = 0; i < configuration.recentFiles.Count; i++)
+            {
+                ToolStripMenuItem menuItem = new ToolStripMenuItem(configuration.recentFiles[i]);
+                menuItem.Click += new EventHandler((sender, e) => OpenDocument(menuItem.Text));
+                recentFilesMenu.DropDownItems.Add(menuItem);
+            }
         }
         private void SaveConfiguration()
         {
@@ -140,6 +149,11 @@ namespace Editor_Texto
             configuration.familyName = textBox1.Font.FontFamily.Name;
             configuration.fontEmSize = textBox1.Font.Size;
             configuration.fontStyle = textBox1.Font.Style;
+            configuration.recentFiles = new List<string>();
+            for (int i = 0; i < recentFilesMenu.DropDownItems.Count; i++)
+            {
+                configuration.recentFiles.Add(recentFilesMenu.DropDownItems[i].Text);
+            }
 
             try
             {
@@ -278,55 +292,67 @@ namespace Editor_Texto
 
         private void SaveDocument(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = this.Text;
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (!saved)
             {
-                try
+
+                saveFileDialog1.FileName = this.Text;
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
-                    File.WriteAllText(saveFileDialog1.FileName, textBox1.Text);
-                    saved = true;
+                    try
+                    {
+                        File.WriteAllText(saveFileDialog1.FileName, textBox1.Text);
+                        saved = true;
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        MessageBox.Show("The file was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        saved = false;
+                    }
+                    catch (DirectoryNotFoundException)
+                    {
+                        MessageBox.Show("The directory was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        saved = false;
+                    }
+                    catch (IOException)
+                    {
+                        MessageBox.Show("The file could not be opened", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        saved = false;
+                    }
+                    this.Text = saved ? new FileInfo(saveFileDialog1.FileName).Name : "SinTitulo.txt";
                 }
-                catch (FileNotFoundException)
-                {
-                    MessageBox.Show("The file was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    saved = false;
-                }
-                catch (DirectoryNotFoundException)
-                {
-                    MessageBox.Show("The directory was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    saved = false;
-                }
-                catch (IOException)
-                {
-                    MessageBox.Show("The file could not be opened", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    saved = false;
-                }
-                this.Text = saved ? new FileInfo(saveFileDialog1.FileName).Name : "SinTitulo.txt";
             }
         }
 
         private void OpenDocument(object sender, EventArgs e)
         {
+
             saveFileMenu.PerformClick();
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                try
-                {
-                    textBox1.Text = File.ReadAllText(openFileDialog1.FileName);
-                }
-                catch (FileNotFoundException)
-                {
-                    MessageBox.Show("The file was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                catch (DirectoryNotFoundException)
-                {
-                    MessageBox.Show("The directory was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-                catch (IOException)
-                {
-                    MessageBox.Show("The file could not be opened", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                OpenDocument(openFileDialog1.FileName);
+                SaveRecentFiles();
             }
+        }
+
+        private void OpenDocument(string path)
+        {
+            try
+            {
+                textBox1.Text = File.ReadAllText(path);
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("The file was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (DirectoryNotFoundException)
+            {
+                MessageBox.Show("The directory was not found", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            catch (IOException)
+            {
+                MessageBox.Show("The file could not be opened", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            saved = true;
         }
 
         private void OnClosing(object sender, FormClosingEventArgs e)
@@ -347,6 +373,16 @@ namespace Editor_Texto
             selectedTextToolStripLabel1.Text = textBox1.SelectedText.Length > 0 ? $"Selected text from {textBox1.SelectionStart} to {textBox1.SelectionLength}" : "";
         }
 
+        private void SaveRecentFiles()
+        {
+            ToolStripMenuItem menuItem = new ToolStripMenuItem(openFileDialog1.FileName);
+            menuItem.Click += new EventHandler((sender, e) => OpenDocument(menuItem.Text));
+            recentFilesMenu.DropDownItems.Insert(0, menuItem);
+            if (recentFilesMenu.DropDownItems.Count > 5)
+            {
+                recentFilesMenu.DropDownItems.RemoveAt(recentFilesMenu.DropDownItems.Count - 1);
+            }
+        }
         Configuration configuration;
         public bool saved;
         public DirectoryInfo saveDirectory = new DirectoryInfo($"{Environment.GetEnvironmentVariable("appdata")}\\ejer9");

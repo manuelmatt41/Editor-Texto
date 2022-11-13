@@ -25,6 +25,10 @@ namespace Editor_Texto
             base.Write(c.familyName);
             base.Write(c.fontEmSize);
             base.Write((int)c.fontStyle);
+            for (int i = 0; i < c.recentFiles.Count; i++)
+            {
+                base.Write(c.recentFiles[i]);
+            }
         }
     }
 
@@ -44,6 +48,11 @@ namespace Editor_Texto
             c.familyName = base.ReadString();
             c.fontEmSize = base.ReadDouble();
             c.fontStyle= (FontStyle)base.ReadInt32();
+            c.recentFiles = new List<string>();
+            while (this.BaseStream.Position < this.BaseStream.Length)
+            {
+                c.recentFiles.Add(base.ReadString());
+            }
             return c;
         }
     }
@@ -60,6 +69,7 @@ namespace Editor_Texto
             this.familyName = FontFamily.GenericMonospace.Name;
             this.fontEmSize = 12;
             this.fontStyle = FontStyle.Regular;
+            this.recentFiles = new List<string>();
 
         }
         public bool wordWrap;
@@ -69,5 +79,6 @@ namespace Editor_Texto
         public String familyName;
         public double fontEmSize;
         public FontStyle fontStyle;
+        public List<string> recentFiles;
     }
 }
