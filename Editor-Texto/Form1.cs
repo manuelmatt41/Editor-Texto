@@ -8,9 +8,9 @@ namespace Editor_Texto
         public Form1()
         {
             InitializeComponent();
-            textBox1.Size = GetFormFreeSpace();
             InitializeEvents();
             LoadConfig();
+            textBox1.Size = GetFormFreeSpace();
             this.Text = "SinTitulo.txt";
             saved = true;
         }
@@ -60,9 +60,19 @@ namespace Editor_Texto
             //
             // TextBox "Document" Event
             //
-            textBox1.TextChanged += new EventHandler((sender, e) => saved = false);
+            textBox1.TextChanged += new EventHandler(TextModified);
             textBox1.TextChanged += new EventHandler((sender, e) => UpdateInfo(phrasesToolStripLabel1, wordsToolStripLabel1, charactersToolStripLabel1, textBox1.Text));
             textBox1.MouseMove += new MouseEventHandler(UpdateSelectionInfo);
+            textBox1.KeyDown += new KeyEventHandler(UpdateSelectionInfo);
+            textBox1.KeyUp += new KeyEventHandler(UpdateSelectionInfo);
+            //
+            // Context Menu
+            //
+            undoToolStripMenuItem.Click += new EventHandler((sender, e) => textBox1.Undo());
+            copyToolStripMenuItem.Click += new EventHandler((sender, e) => textBox1.Copy());
+            cutToolStripMenuItem.Click += new EventHandler((sender, e) => textBox1.Cut());
+            pasteToolStripMenuItem.Click += new EventHandler((sender, e) => textBox1.Paste());
+            selectAllToolStripMenuItem.Click += new EventHandler((sender, e) => textBox1.SelectAll());
         }
 
         private void CreateConfigDirectory()
@@ -294,7 +304,6 @@ namespace Editor_Texto
         {
             if (!saved)
             {
-
                 saveFileDialog1.FileName = this.Text;
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
@@ -318,7 +327,11 @@ namespace Editor_Texto
                         MessageBox.Show("The file could not be opened", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         saved = false;
                     }
-                    this.Text = saved ? new FileInfo(saveFileDialog1.FileName).Name : "SinTitulo.txt";
+                    if (this.Text.StartsWith("SinTitulo.txt"))
+                    {
+                        this.Text = new FileInfo(saveFileDialog1.FileName).Name;
+                    }
+                    this.Text.Remove(this.Text.Length - 1);
                 }
             }
         }
@@ -370,17 +383,33 @@ namespace Editor_Texto
 
         private void UpdateSelectionInfo(object sender, EventArgs e)
         {
-            selectedTextToolStripLabel1.Text = textBox1.SelectedText.Length > 0 ? $"Selected text from {textBox1.SelectionStart} to {textBox1.SelectionLength}" : "";
+            selectedTextToolStripLabel1.Text = textBox1.SelectedText.Length > 0 ? $"Selected text from {textBox1.SelectionStart} to {textBox1.SelectionStart + textBox1.SelectionLength}" : "";
         }
 
         private void SaveRecentFiles()
         {
+            for (int i = 0; i < recentFilesMenu.DropDownItems.Count; i++)
+            {
+                if (recentFilesMenu.DropDownItems[i].Text == openFileDialog1.FileName)
+                {
+                    return;
+                }
+            }
             ToolStripMenuItem menuItem = new ToolStripMenuItem(openFileDialog1.FileName);
             menuItem.Click += new EventHandler((sender, e) => OpenDocument(menuItem.Text));
             recentFilesMenu.DropDownItems.Insert(0, menuItem);
             if (recentFilesMenu.DropDownItems.Count > 5)
             {
                 recentFilesMenu.DropDownItems.RemoveAt(recentFilesMenu.DropDownItems.Count - 1);
+            }
+        }
+
+        private void TextModified(object sender, EventArgs e)
+        {
+            if (saved)
+            {
+                saved = false;
+                this.Text = this.Text + "*";
             }
         }
         Configuration configuration;
