@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Manu\\Documents\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj": {}
+    "C:\\Users\\Manu\\Documents\\repositories\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Manu\\Documents\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj": {
+    "C:\\Users\\Manu\\Documents\\repositories\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Manu\\Documents\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
+        "projectUniqueName": "C:\\Users\\Manu\\Documents\\repositories\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
         "projectName": "Editor-Texto",
-        "projectPath": "C:\\Users\\Manu\\Documents\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
+        "projectPath": "C:\\Users\\Manu\\Documents\\repositories\\Editor-Texto\\Editor-Texto\\Editor-Texto.csproj",
         "packagesPath": "C:\\Users\\Manu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Manu\\Documents\\Editor-Texto\\Editor-Texto\\obj\\",
+        "outputPath": "C:\\Users\\Manu\\Documents\\repositories\\Editor-Texto\\Editor-Texto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Manu\\AppData\\Roaming\\NuGet\\NuGet.Config",
